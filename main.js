@@ -11,7 +11,18 @@ DOM(Document Object Model)이라 하면 자바스크립트 입장에서 그저 �
 /* 
 document.getElementById : id로 선택
 document.getElementByClassName : class로 선택, 같은 클래스가 여러개 있을 경우 모두 다 선택되서 배열에 저장된다
+*/
+/* 
+document.querySelector : id, class 둘다 선택 가능하고 좀더 디테일한 선택이 가능. 참고로 선택가능한 값이 여러개일 경우 첫번째 태그 하나만 반환
 
+let userInput = document.querySelector("#user-input");
+>>id=user-input 을 선택
+let resultAreaImg = document.querySelector(".main-img");
+>>class=main-img 를 선택
+let menus = document.querySelector("nav a");
+>>nav태그 밑에 있는 a를 선택
+
+document.querySelectorAll : 위에 있는 document.querySelector와 같고, All 선택된 값을 모두 NodeList에 담아 반환
 */
 console.log(playButton);
 
