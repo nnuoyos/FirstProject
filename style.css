@@ -158,7 +158,6 @@ button {
         opacity: 0;
     }
 }
-
 /* 모바일 끝 */
 /* 태블릿 시작 */
 @media (min-width: 768px) {
