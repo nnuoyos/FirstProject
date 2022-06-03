@@ -10,35 +10,34 @@
     max-width: 420px;
     /* 모바일 디바이스 맥시멈 420px 최대 너비를 지정하여 그 이상 넘어가지 않도록 설정할 수 있다 */
     margin: 0 auto;
-
 }
 img {
     width: 100%;
     height: auto;
 }
-#title{
+#title {
     font-size: 20px;
-    min-width:11px;
+    min-width: 11px;
     white-space: nowrap;
     position: relative;
     margin: 0 auto;
     color: transparent;
-    top:3%;
-    left:50%;
+    top: 3%;
+    left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
 }
-#resultArea{
+#resultArea {
     color: #2472e7;
     text-align: center;
     font-family: 'Black Han Sans', sans-serif;
 }
-#chance_area{
+#chance_area {
     color: #2472e7;
     text-align: center;
-    font-family: 'Black Han Sans', sans-serif;   
+    font-family: 'Black Han Sans', sans-serif;
 }
-input{
+input {
     transform: translate(150%, 150%);
     width: 200px;
     height: 32px;
@@ -49,11 +48,11 @@ input{
     padding-left: 10px;
     background-color: rgb(233, 233, 233);
 }
-#user_input{
+#user_input {
     transform: translate(50%, 50%);
 }
 #title::before {
-    content: "Up and Down";
+    content: 'Up and Down';
     position: absolute;
     top: 90;
     left: 50;
@@ -64,16 +63,16 @@ input{
     border-right: 1px solid black;
     animation: typing 5s steps(31) infinite;
 }
-@keyframes typing{
-  0% {
-    width: 0%;
-  }
-  50% {
-    width: 100%;
-  }
-  100% {
-    width: 0%;
-  }
+@keyframes typing {
+    0% {
+        width: 0%;
+    }
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 0%;
+    }
 }
 
 button {
@@ -83,51 +82,52 @@ button {
 
     margin: 0;
     padding: 0.5rem 1rem;
-  
-    font-family: "Noto Sans KR", sans-serif;
+
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: 1rem;
     font-weight: 400;
     text-align: center;
     text-decoration: none;
-  
+
     display: inline-block;
     width: auto;
-  
+
     border: none;
     border-radius: 5px;
-    position: fixed;
-    top: 150px;
+    /*  position: fixed;
+    top: 150px; */
     transform: translate(50%, 50%);
-    
-  }
-  button{
+}
+button {
     position: relative;
     padding: 15px 30px;
     border-radius: 15px;
-    font-family: "paybooc-Light", sans-serif;
+    font-family: 'paybooc-Light', sans-serif;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
     transition: 0.25s;
-  }
-/*   button:hover{
-    letter-spacing: 2px;
-    transform: scale(1.2);
-    cursor: pointer;
-  } */
-  #play_button{
+}
+.btn {
+    width: 100%;
+    text-align: center;
+}
+.btn > div {
+    display: inline-block;
+}
+#play_button {
     border: 3px solid #ff5f2e;
     color: #6e6e6e;
-  }
- /*  #play_button:hover{
+}
+/*  #play_button:hover{
     background-color: #ff5f2e;
     color: #e1eef6;
     transform: scale(1.2);
   } */
 /*   #play_button:active{
   } */
-  #play_button:hover::after{
-    content: "";
+#play_button:hover::after {
+    content: '';
     width: 30px;
     height: 30px;
     border-radius: 100%;
@@ -138,16 +138,16 @@ button {
     left: 50%;
     transform: translate(-50%, -50%);
     animation: ring 1.5s infinite;
-  }
-  #reset_button{
+}
+#reset_button {
     border: 3px solid #2472e7;
     color: #6e6e6e;
-  }
- /*  #reset_button:hover{
+}
+/*  #reset_button:hover{
     transform: scale(1.2);
   } */
-  #reset_button:hover::after{
-    content: "";
+#reset_button:hover::after {
+    content: '';
     width: 30px;
     height: 30px;
     border-radius: 100%;
@@ -158,8 +158,8 @@ button {
     left: 50%;
     transform: translate(-50%, -50%);
     animation: ring 1.5s infinite;
-  }
-  @keyframes ring {
+}
+@keyframes ring {
     0% {
         width: 30px;
         height: 30px;
@@ -177,39 +177,39 @@ button {
     #wrap {
         max-width: 1259px;
     }
-    img{
+    img {
         width: 800px;
         height: 500px;
         display: block;
         margin: auto;
     }
-    #title{
+    #title {
         font-size: 60px;
-        min-width:10px;
+        min-width: 10px;
         white-space: nowrap;
         position: relative;
         margin: 40px;
         color: transparent;
-        top:40%;
-        left:50%;
+        top: 40%;
+        left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
     }
-    #resultArea{
+    #resultArea {
         color: #2472e7;
         text-align: center;
         font-family: 'Inter', sans-serif;
         font-family: 'Black Han Sans', sans-serif;
         font-size: 30px;
     }
-    #chance_area{
+    #chance_area {
         color: #2472e7;
         text-align: center;
         font-family: 'Inter', sans-serif;
         font-family: 'Black Han Sans', sans-serif;
-        font-size: 30px;  
+        font-size: 30px;
     }
-    input{
+    input {
         transform: translate(150%, 150%);
         width: 400px;
         height: 32px;
@@ -221,7 +221,7 @@ button {
         background-color: rgb(233, 233, 233);
     }
     #title::before {
-        content: "Up and Down";
+        content: 'Up and Down';
         position: absolute;
         top: 90;
         left: 50;
@@ -232,19 +232,26 @@ button {
         border-right: 1px solid black;
         animation: typing 5s steps(31) infinite;
     }
-    @keyframes typing{
-      0% {
-        width: 0%;
-      }
-      50% {
-        width: 100%;
-      }
-      100% {
-        width: 0%;
-      }
+    @keyframes typing {
+        0% {
+            width: 0%;
+        }
+        50% {
+            width: 100%;
+        }
+        100% {
+            width: 0%;
+        }
     }
-      #reset_button:hover::after{
-        content: "";
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+    .btn > div {
+        display: inline-block;
+    }
+    #reset_button:hover::after {
+        content: '';
         width: 30px;
         height: 30px;
         border-radius: 100%;
@@ -255,8 +262,8 @@ button {
         left: 50%;
         /* transform: translate(-50%, -50%); */
         animation: ring 1.5s infinite;
-      }
-      @keyframes ring {
+    }
+    @keyframes ring {
         0% {
             width: 30px;
             height: 30px;
@@ -272,39 +279,39 @@ button {
 /* 태블릿 끝 */
 /* pc 시작 */
 @media (min-width: 1260px) {
-    #title{
+    #title {
         font-size: 60px;
-        min-width:10px;
+        min-width: 10px;
         white-space: nowrap;
         position: relative;
         margin: 40px;
         color: transparent;
-        top:40%;
-        left:50%;
+        top: 40%;
+        left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
     }
-    img{
-      width: 800px;
-        height: 500px;
+    img {
+        width: 800px;
+        height: 400px;
         display: block;
         margin: auto;
     }
-    #resultArea{
+    #resultArea {
         color: #2472e7;
         text-align: center;
         font-family: 'Black Han Sans', sans-serif;
         font-size: 50px;
     }
-    #chance_area{
+    #chance_area {
         color: #2472e7;
         text-align: center;
         font-family: 'Black Han Sans', sans-serif;
-        font-size: 50px;   
+        font-size: 50px;
     }
-    input{
+    input {
         transform: translate(150%, 150%);
-        width: 350px;
+        width: 600px;
         height: 32px;
         font-size: 15px;
         border: 0;
@@ -314,7 +321,7 @@ button {
         background-color: rgb(233, 233, 233);
     }
     #title::before {
-        content: "Up and Down";
+        content: 'Up and Down';
         position: absolute;
         top: 90;
         left: 50;
@@ -325,63 +332,62 @@ button {
         border-right: 1px solid black;
         animation: typing 5s steps(31) infinite;
     }
-    @keyframes typing{
-      0% {
-        width: 0%;
-      }
-      50% {
-        width: 100%;
-      }
-      100% {
-        width: 0%;
-      }
+    @keyframes typing {
+        0% {
+            width: 0%;
+        }
+        50% {
+            width: 100%;
+        }
+        100% {
+            width: 0%;
+        }
     }
-    
+
     button {
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
-    
+
         margin: 0;
         padding: 0.5rem 1rem;
-      
-        font-family: "Noto Sans KR", sans-serif;
+
+        font-family: 'Noto Sans KR', sans-serif;
         font-size: 1rem;
         font-weight: 300;
         text-align: center;
         text-decoration: none;
-      
+
         display: inline-block;
         width: auto;
-      
+
         border: none;
         border-radius: 5px;
-        position: fixed;
-        top: 150px;
+        /*       position: fixed;
+        top: 50px; */
         /* transform: translate(100%, 50%); */
         align-items: center;
-        
-      }
-      button{
+    }
+    button {
         position: relative;
         padding: 5px 30px;
         border-radius: 15px;
-        font-family: "paybooc-Light", sans-serif;
+        font-family: 'paybooc-Light', sans-serif;
         box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
         text-decoration: none;
         font-weight: 600;
         transition: 0.25s;
-      }
-      #play_button{
+    }
+    #play_button {
         border: 3px solid #ff5f2e;
         color: #6e6e6e;
-      }
-      #reset_button{
+    }
+    #reset_button {
         border: 3px solid #2472e7;
         color: #6e6e6e;
-      }
-      #reset_button:hover::after{
-        content: "";
+    }
+    #reset_button:hover::after {
+        content: '';
         width: 30px;
         height: 30px;
         border-radius: 100%;
@@ -392,8 +398,8 @@ button {
         left: 50%;
         transform: translate(-50%, -50%);
         animation: ring 1.5s infinite;
-      }
-      @keyframes ring {
+    }
+    @keyframes ring {
         0% {
             width: 30px;
             height: 30px;
