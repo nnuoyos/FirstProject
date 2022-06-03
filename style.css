@@ -40,7 +40,7 @@ img {
 }
 input{
     transform: translate(150%, 150%);
-    width: 150px;
+    width: 200px;
     height: 32px;
     font-size: 15px;
     border: 0;
@@ -119,20 +119,33 @@ button {
     border: 3px solid #ff5f2e;
     color: #6e6e6e;
   }
-  #play_button:hover{
+ /*  #play_button:hover{
     background-color: #ff5f2e;
     color: #e1eef6;
-  }
-  #play_button:active{
     transform: scale(1.2);
+  } */
+/*   #play_button:active{
+  } */
+  #play_button:hover::after{
+    content: "";
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: 6px solid #ce7de2;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring 1.5s infinite;
   }
   #reset_button{
     border: 3px solid #2472e7;
     color: #6e6e6e;
   }
-  #reset_button:hover{
+ /*  #reset_button:hover{
     transform: scale(1.2);
-  }
+  } */
   #reset_button:hover::after{
     content: "";
     width: 30px;
@@ -166,7 +179,9 @@ button {
     }
     img{
         width: 800px;
-        height: 600px;
+        height: 500px;
+        display: block;
+        margin: auto;
     }
     #title{
         font-size: 60px;
@@ -185,16 +200,18 @@ button {
         text-align: center;
         font-family: 'Inter', sans-serif;
         font-family: 'Black Han Sans', sans-serif;
+        font-size: 30px;
     }
     #chance_area{
         color: #2472e7;
         text-align: center;
         font-family: 'Inter', sans-serif;
-        font-family: 'Black Han Sans', sans-serif;  
+        font-family: 'Black Han Sans', sans-serif;
+        font-size: 30px;  
     }
     input{
         transform: translate(150%, 150%);
-        width: 150px;
+        width: 400px;
         height: 32px;
         font-size: 15px;
         border: 0;
@@ -226,65 +243,6 @@ button {
         width: 0%;
       }
     }
-    
-    button {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-    
-        margin: 0;
-        padding: 0.5rem 1rem;
-      
-        font-family: "Noto Sans KR", sans-serif;
-        font-size: 1rem;
-        font-weight: 300;
-        text-align: center;
-        text-decoration: none;
-      
-        display: inline-block;
-        width: auto;
-      
-        border: none;
-        border-radius: 5px;
-        position: fixed;
-        top: 150px;
-        /* transform: translate(100%, 50%); */
-        align-items: center;
-        
-      }
-      button{
-        position: relative;
-        padding: 5px 30px;
-        border-radius: 15px;
-        font-family: "paybooc-Light", sans-serif;
-        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
-        text-decoration: none;
-        font-weight: 600;
-        transition: 0.25s;
-      }
-      button:hover{
-        letter-spacing: 2px;
-        transform: scale(1.2);
-        cursor: pointer;
-      }
-      #play_button{
-        border: 3px solid #ff5f2e;
-        color: #6e6e6e;
-      }
-      #play_button:hover{
-        background-color: #ff5f2e;
-        color: #e1eef6;
-      }
-      #play_button:active{
-        transform: scale(1.5);
-      }
-      #reset_button{
-        border: 3px solid #2472e7;
-        color: #6e6e6e;
-      }
-      #reset_button:hover{
-        transform: scale(1.2);
-      }
       #reset_button:hover::after{
         content: "";
         width: 30px;
@@ -295,7 +253,7 @@ button {
         z-index: -1;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        /* transform: translate(-50%, -50%); */
         animation: ring 1.5s infinite;
       }
       @keyframes ring {
@@ -326,21 +284,27 @@ button {
         transform: translate(-50%, -50%);
         text-align: center;
     }
+    img{
+      width: 800px;
+        height: 500px;
+        display: block;
+        margin: auto;
+    }
     #resultArea{
         color: #2472e7;
         text-align: center;
         font-family: 'Black Han Sans', sans-serif;
-        font-size: 80px;
+        font-size: 50px;
     }
     #chance_area{
         color: #2472e7;
         text-align: center;
         font-family: 'Black Han Sans', sans-serif;
-        font-size: 100px;   
+        font-size: 50px;   
     }
     input{
         transform: translate(150%, 150%);
-        width: 150px;
+        width: 350px;
         height: 32px;
         font-size: 15px;
         border: 0;
@@ -408,28 +372,13 @@ button {
         font-weight: 600;
         transition: 0.25s;
       }
-      button:hover{
-        letter-spacing: 2px;
-        transform: scale(1.2);
-        cursor: pointer;
-      }
       #play_button{
         border: 3px solid #ff5f2e;
         color: #6e6e6e;
       }
-      #play_button:hover{
-        background-color: #ff5f2e;
-        color: #e1eef6;
-      }
-      #play_button:active{
-        transform: scale(1.5);
-      }
       #reset_button{
         border: 3px solid #2472e7;
         color: #6e6e6e;
-      }
-      #reset_button:hover{
-        transform: scale(1.2);
       }
       #reset_button:hover::after{
         content: "";
