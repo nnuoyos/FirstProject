@@ -30,7 +30,7 @@
 }
 
 .MsgBox{
-  width: 50%;
+  width: 60%;
   display: block;
   margin: auto;
 }
@@ -152,7 +152,7 @@ button {
     transition: 0.25s;
   }
   input{
-    width: 205px;
+    width: 200px;
     height: 32px;
     top: 50px;
     font-size: 15px;
@@ -177,7 +177,7 @@ button {
   } */
   .btnPlay{
     width: 100%;
-    transform: translate(16%, 25%);
+    transform: translate(15%, 25%);
     position: absolute;
     z-index: 100;
     display: inline-block;
@@ -186,7 +186,7 @@ button {
   }
   .btnReset{
     width: 100%;
-    transform: translate(40%, 25%);
+    transform: translate(38%, 25%);
     position: absolute;
     z-index: 100;
     display: inline-block;
@@ -264,10 +264,14 @@ img {
 }
 /* 모바일 끝 */
 /* 태블릿 시작 */
-@media (min-width: 768px) {
+@media (min-width: 820px) {
+  #wrap {
+      min-width: 1180px;
+  }
+/* @media (min-width: 768px) {
     #wrap {
         max-width: 1259px;
-    }
+    } */
 
     #title{
       font-family: 'Inter', sans-serif;
@@ -300,7 +304,7 @@ img {
     }
     input{
         transform: translate(50%, 150%);
-        width: 260px;
+        width: 330px;
         height: 32px;
         font-size: 15px;
         border: 0;
@@ -309,7 +313,7 @@ img {
         background-color: rgb(233, 233, 233);
     }
     #user_input{
-      transform: translate(130%, 50%);
+      transform: translate(120%, 50%);
       position: relative;
       z-index: 100;
   }
@@ -430,7 +434,7 @@ img {
     z-index: 100;
   }
   .MsgBox{
-    width: 30%;
+    width: 45%;
     display: block;
     margin: auto;
   }
@@ -473,7 +477,7 @@ img {
     }
     input{
         /* transform: translate(150%, 150%); */
-        width: 455px;
+        width: 430px;
         height: 32px;
         font-size: 15px;
         border: 0;
