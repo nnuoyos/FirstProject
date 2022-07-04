@@ -17,12 +17,18 @@ let addButton = document.getElementById('add-button');
 let taskList = []; //입력 받은 값을 차례로 배열에 넣을 예정
 let filterList = [];
 let tabs = document.querySelectorAll('.task-tabs div');
-let mode = '';
+let mode = 'all'; //디폴트 값을 all로 해서 할일 추가버튼 누를때마다 바로바로 all창에 보인다
 
 console.log(tabs);
 
-/* 버튼이 클릭 되었을 때 실행할 함수 */
+/* +버튼이 클릭 되었을 때 실행할 함수 */
 addButton.addEventListener('click', addTask);
+/* 입력창에 엔터키 눌렀을 때 실행할 함수 */
+taskInput.addEventListener('keydown', function (event) {
+    if (window.event.keyCode === 13) {
+        addTask(event);
+    }
+});
 
 //tabs를 눌렀을 때 함수기능 (일회성이기 때문에 여기서 바로 호출하여 사용한다)
 //filter함수에 event를 인자로 받아오기
@@ -34,7 +40,7 @@ for (let i = 1; i < tabs.length; i++) {
 
 function addTask() {
     //객체에 있는 정보가 완료인지 진행중인지에 대한 정보 필요
-
+    let taskValue = taskInput.value;
     let task = {
         id: randomIDGenerate(),
         taskContent: taskInput.value,
@@ -46,6 +52,7 @@ function addTask() {
     // let taskContent = taskInput.value;
     // taskList.push(taskContent);
     console.log(taskList);
+    taskInput.value = ''; //입력 후 입력창 비우기
     render();
 }
 
@@ -53,28 +60,28 @@ function addTask() {
 //taskList[i]의 taskContent 객체 가져오기
 //${taskList[i].id} 체크버튼이 눌러질때마다 id값이 인자로 들어온다
 function render() {
+    let resultHTML = '';
     let list = [];
     if (mode == 'all') {
         list = taskList;
-    } else if (mode == 'ongoing') {
+    } else {
         list = filterList;
-    }
-    let resultHTML = '';
+    } //필터 함수에서 걸러져서 올라오기 때문에 이렇게 작성 mode == ongoing || mode == done
     for (let i = 0; i < list.length; i++) {
-        if (list[i].isComplete == true) {
-            resultHTML += `<div class="task">
-        <div class="task-done">${list[i].taskContent}</div>
-        <div>
-            <button onclick="toggleComplete('${list[i].id}')">Check</button>
-            <button onclick="deleteTask('${list[i].id}')">Delete</button>
+        if (list[i].isComplete) {
+            resultHTML += `<div class="task task-done" id="${list[i].id}">
+        <span>${list[i].taskContent}</span>
+        <div class="button-box">
+            <button onclick="toggleComplete('${list[i].id}')"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+            <button onclick="deleteTask('${list[i].id}')"><i class="fa-solid fa-delete-left"></i></button>
         </div>
         </div>`;
         } else {
-            resultHTML += `<div class="task">
-        <div>${list[i].taskContent}</div>
-        <div>
-            <button onclick="toggleComplete('${list[i].id}')">Check</button>
-            <button onclick="deleteTask('${list[i].id}')">Delete</button>
+            resultHTML += `<div class="task" id="${list[i].id}">
+        <span>${list[i].taskContent}</span>
+        <div class="button-box">
+            <button onclick="toggleComplete('${list[i].id}')"><i class="fa-solid fa-circle-check"></i></button>
+            <button onclick="deleteTask('${list[i].id}')"><i class="fa-solid fa-delete-left"></i></button>
         </div>
         </div>`;
         }
@@ -105,43 +112,62 @@ function toggleComplete(id) {
             break;
         }
     }
-    render();
-    console.log(taskList);
+    filter();
+    //console.log(taskList);
 }
 
 function deleteTask(id) {
-    // const removingOne = event.target.parentElement;
-    // removingOne.remove();
     //console.log(id);
     for (let i = 0; i < taskList.length; i++) {
-        if (taskList[i].id == id) {
+        if (taskList[i].id === id) {
             taskList.splice(i, 1); //i번째에 1개의 아이템만 삭제하기
             break;
         }
     }
-    render();
+    filter();
+    //render();
 }
 
-//여기서 이벤트란 클릭했을때 일어나는 모든 일 어떤일에 대해서인지 알고 싶다면 .을 찍는다
+//여기서 이벤트란 클릭했을때 일어나는 모든 일, 어떤일에 대해서인지 알고 싶다면 .을 찍는다
+//event.target => 내가 찍은 것의 ~~
 function filter(event) {
-    mode = event.target.id;
+    if (event) {
+        mode = event.target.id;
+        //console.log('check', event.target.id);
+        document.getElementById('under-line').style.width = event.target.offsetWidth + 'px';
+        document.getElementById('under-line').style.top = '52px';
+        document.getElementById('under-line').style.left = event.target.offsetLeft + 'px';
+    }
+    //offsetWith 속성 => 클릭한 객체의 높이 값 만큼만 속성을 준다
+    //offsetLeft 속성 => 클릭한 객체의 레프트값 만큼만 속성을 준다
+
     filterList = [];
-    //console.log('check', event.target.id);
-    if (mode == 'all') {
-        render();
-    } else if (mode == 'ongoing') {
+    //taskList = filterList; //덮어쓰기 로직을 짜면 일시적으로 밖에 못 쓴다
+    if (mode === 'ongoing') {
         for (let i = 0; i < taskList.length; i++) {
             if (taskList[i].isComplete == false) {
                 filterList.push(taskList[i]);
             }
         }
-        //taskList = filterList; //덮어쓰기 로직을 짜면 일시적으로 밖에 못 쓴다
-
-        render();
+    } else if (mode === 'done') {
+        for (let i = 0; i < taskList.length; i++) {
+            if (taskList[i].isComplete == true) {
+                filterList.push(taskList[i]);
+            }
+        }
     }
+    render();
     //console.log(filterList);
 }
 
 function randomIDGenerate() {
     return Math.random().toString(36).substr(2, 16);
 }
+
+/* 
+추가 작업
+1. 아이콘 넣기:: 체크버튼<->리프레쉬 버튼 / 삭제버튼 //완료
+2. 입력창에 엔터값으로 할 일 추가할 수 있도록 하기 (커서올리면 전에 쓴 글 지우기 포함) //완료
+3. 진행중,끝남 탭에서 체크버튼,딜리트버튼 눌렀을 때 UI(화면상)에 바로 업데이트 시키기
+
+*/
