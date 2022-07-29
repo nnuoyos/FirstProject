@@ -26,11 +26,13 @@
                 <h3>Heep</h3>
                 동적으로 생성된 변수들은 메모리 heep에 가서 저장이 된다
             </li>
+            <li><img src="./2_콜스텍.png" alt="콜스택" /></li>
             <li>
                 <h3>테스크 큐(Queue)</h3>
                 <br />
                 웹 API로 부터 받은 테스크를 큐에 저장해 둔다 스택이 비워지면 이벤트 루프가 큐에 아이템을 꺼내다가 스택으로 올려준다 First In First Out 선입선출
             </li>
+            <li><img src="./3_큐.png" alt="큐" /></li>
             <li>
                 <h3>Event Loop</h3>
                 <br />
@@ -58,6 +60,65 @@
                 스레드가 1개이면 일 처리가 1개씩만 되어서 동기적으로 일을 처리하게 된다 <br />
                 멀티스레드라면 (1개이상) 여러개의 작업을 병렬적으로 처리 할 수 있다 <br />
                 자바스크립트는 싱글스레드로 동기적 처리를 한다는 것을 반드시 명심해야 한다
+            </li>
+            <li>
+                <h3>API를 부르는 방식</h3>
+                ajax, axios, fetch가 있다. <br />
+                이 중에는 fetch가 제일 간단하다 <br />
+                ajax, axios는 React.js에서 많이 사용되는 방식이기도 하다.
+            </li>
+            <li>
+                <h3>Promise</h3>
+                자바스크립트에서 비동기 동작을 다루는 ES6 최신문법이다<br />
+                기존에 콜백함수를 이용해서 비동기처리를 하였는데, <br />
+                $.ajax("http://api.newscatcher.com/v2/search", (result)=>{console.log(result);}); <br />
+                위의 코드와 같은 방식이라면 url이 호출이 되고, 결과가 나오면 두번째 매개변수인 콜백함수를 불러서 <br />
+                result에 값을 넘겨줬었다. 이렇게 하면 가독성이 많이 떨어져 콜백지옥이 된다<br />
+                함수안에 함수, 그 안에 또 함수...콜백헬 그래서 나온게 Promise <br />
+                function delayP(sec){<br />
+                &nbsp;&nbsp;return new Promise((resolve, resject)=>{<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;setTimeout(()=>{<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resolve("success");<br />
+                &nbsp;&nbsp;&nbsp;&nbsp;}, sec * 1000);<br />
+                &nbsp;&nbsp;});<br />
+                }<br />
+                new Promise를 이용해서 promise를 생성하고, promise 안에서는 resolve와 reject 함수를 자동으로 가진다 <br />
+                resolve는 결과가 문제 없이 성공적으로 수행 될 때 호출하는 함수 <br />
+                reject는 중간에 에러가 나면 에러를 처리할 수 있는 함수<br />
+                resolve가 호출 되면 콜백 대신에 .then() 이나 async / await 을 이용해서 그 결과값을 받아내 다른 일들을 할 수 있다
+            </li>
+            <li>
+                <h3>async / await</h3>
+                async와 await은 동기적인 자바스크립트를 비동기적으로 처리하기 위해서 사용한다 <br />
+                fetch는 promise를 리턴한다. 그리고 우리가 필요한 건 그 promise 속에서 api호출이 잘 이루어져 <br />
+                데이터를 받은 다음, promise가 성공적으로 resolve 호출하기를 기다리는 것이다. <br />
+                이걸 해주는게 await 이다. <br />
+                await이 없으면 그냥 날것 그대로의 promise가 리턴 된다 <br />
+                await을 쓰려면 함수를 async로 선언해줘야 한다. 즉 둘은 한 세트라고 생각하면 된다 <br />
+                그 외에도 async로 함수를 선언하면 그 함수는 자동으로 promise를 반환 한다 <br />
+                이 함수를 받아다가 다른 비동기 작업이 가능하다는 이야기가 된다.
+            </li>
+            <li>
+                <h3>json</h3>
+                서버 클라이언트 통신에서 많이 쓰이는 데이터타입 (png, jpg 이런것 같은 데이터 타입이다) <br />
+                객체랑 똑같이 생긴 텍스트라고 이해하면 좋다<br />
+                간단한 텍스트인데 객체랑 똑같아서 나중에 읽어오기도 매우 편하다 <br />
+                그래서 json 타입을 서버통신시에 많이 사용한다
+            </li>
+            <li>
+                <h3>fetch를 사용할 때의 패턴</h3>
+                let response = await fetch(url) <br />
+                let data = await response.json() <br />
+                위에 쓰인 패턴은 세트로 많이 사용되니까 익숙해지면 좋다
+            </li>
+            <li>
+                <h3>API를 호출하고 싶을 때</h3>
+                const callAPI = async() => { <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;let url = new URL(`url 주소`) <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;let header = new Headers({헤더 내용}) <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;let response =await fetch(url, {headers : header}) <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;let data = await respnse.json() <br />
+                }
             </li>
         </ul>
 
