@@ -38,3 +38,54 @@ const render = () => {
     document.getElementById('news-board').innerHTML = newsHTML;
 };
 getLatestNews();
+
+
+topicButton.addEventListener('click',showTopic);
+const showTopic = (topicButton) => {
+    
+    let topicButton = document.querySelectorAll('.menus button');
+    if(
+        const newUrl = `https://api.newscatcherapi.com/v2/latest_headlines?countries=KR&topic=${topicButton}&page_size=10`
+        )
+    
+
+
+
+}
+
+/* 해당 메뉴에 해당하는 토픽 기사 보여주는 기능 */
+
+/* let topicButton = document.querySelectorAll('.menus button');
+topicButton.addEventListener('click',showTopic);
+
+//topic 버튼 클릭시 실행할 함수
+//array 객체의 topic ="sport"와 메뉴버튼의 sport 값과 일치하면 해당 기사 보여주기
+function showTopic() {
+    let topicUrl = new URL = (`https://api.newscatcherapi.com/v2/latest_headlines?countries=KR&topic=${topicButton}&page_size=10`)
+    let newsHTML = '';
+
+    newsHTML = news
+        .map((news) =>{
+            return `<div class="menus">
+            <button>${news.topic == "sport"}</button>
+            <button>Tech</button>
+            <button>World</button>
+            <button>Finance</button>
+            <button>Politics</button>
+            <button>Business</button>
+            <button>Economics</button>
+            <button>Entertainment</button>
+            <button>Beauty</button>
+            <button>Travel</button>
+            <button>Music</button>
+            <button>Food</button>
+            <button>Science</button>
+            <button>Gaming</button>
+            <button>Energy</button>
+            </div>`
+        })
+        render();
+} */
+
+
+
